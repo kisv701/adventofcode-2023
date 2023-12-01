@@ -3,7 +3,7 @@
 #include <algorithm>
 #include "input_utils.h"
 
-int part_1(std::vector<std::string> &in_vec)
+int part1(std::vector<std::string> &in_vec)
 {
     int current_elf_cal = 0;
     int max_elf_cal = 0;
@@ -23,7 +23,7 @@ int part_1(std::vector<std::string> &in_vec)
     return max_elf_cal;
 }
 
-int part_2(std::vector<std::string> &in_vec)
+int part2(std::vector<std::string> &in_vec)
 {
     std::vector<int> top_three_elfs{0, 0, 0};
     int current_elf_cal = 0;
@@ -54,7 +54,7 @@ int main()
 {
     std::vector<std::string> in_vec;
     inputToStringVector(in_vec);
-    std::cout << part_1(in_vec) << "\n";
-    std::cout << part_2(in_vec) << "\n";
+    std::cout << part1(in_vec) << "\n";
+    std::cout << part2(in_vec) << "\n";
     return 0;
 }
