@@ -4,7 +4,8 @@ from textwrap import dedent
 
 def parse_args():
     parser = ArgumentParser(
-        description="Creates a folder for the day and adds cmake boilerplate into the created folder."
+        description=("Creates a folder for the challenge of the day and"
+                     "adds cmake boilerplate into the created folder.")
         )
     parser.add_argument("day", type=int, help="Day in december, e.g. 24 for christmas eve.")
     return parser.parse_args()
@@ -29,12 +30,13 @@ def create_cmakelists(dirpath: Path, day: int):
     filename = dirpath / "CMakeLists.txt"
     if filename.exists():
         raise FileExistsError(f"CMakeLists.txt in {dirpath} already exists.")
-    
-    with open(filename, "w") as f:
+
+    with open(filename, "w", encoding="utf-8") as f:
         f.write(cmake_boilerplate)
 
 
 def create_main(dirpath: Path):
+    """ Create main cpp file."""
     cpp_boilerplate = dedent("""
     #include <iostream>
     #include "input_utils.h"
@@ -49,23 +51,23 @@ def create_main(dirpath: Path):
     filename = dirpath / "main.cpp"
     if filename.exists():
         raise FileExistsError(f"main.cpp in {dirpath} already exists.")
-    
-    with open(filename, "w") as f:
+
+    with open(filename, "w", encoding="utf-8") as f:
         f.write(cpp_boilerplate)
 
 def create_input(dirpath: Path):
     filename = dirpath / "input.txt"
     if filename.exists():
         raise FileExistsError(f"input.txt in {dirpath} already exists.")
-    
-    with open(filename, "w") as f:
+
+    with open(filename, "w", encoding="utf-8") as f:
         f.write("")
 
 def create_dir(day: int) -> Path:
     dirpath = Path(f"day_{day}")
     if dirpath.exists():
         raise FileExistsError(f"Folder {dirpath} already exists.")
-    
+
     dirpath.mkdir()
     return dirpath
 
