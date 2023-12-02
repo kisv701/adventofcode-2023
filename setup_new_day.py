@@ -37,6 +37,7 @@ def create_cmakelists(dirpath: Path, day: int):
 def create_main(dirpath: Path):
     cpp_boilerplate = dedent("""
     #include <iostream>
+    #include "input_utils.h"
 
     int main()
     {
