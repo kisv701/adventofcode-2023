@@ -14,7 +14,6 @@ This year I'm using C++.
 ## Run
 ```
 .../advent_of_code/build$ cd day_0
-.../advent_of_code/build/day_0$ cd day_0
 .../advent_of_code/build/day_0$ ./day_0
 67658
 200158
